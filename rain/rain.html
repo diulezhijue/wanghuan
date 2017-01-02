@@ -9,6 +9,12 @@
   		margin: 0;
   		padding: 0;
   	}
+    body{
+             background: url(bg.jpg);
+    background-position: 0 0;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    }
   </style>
 </head>
 <body>
@@ -21,17 +27,20 @@
   			var timer = null;
 
   			function rainDrop(){
-  				var left = reRandom(0,winWidth);
+  				var left = reRandom(0,winWidth+300);
   				var $rain = $("<div style='position: fixed; width: 17px; height: 17px; top: -17px;'><img src='http://gitlab.jirengu.com/uploads/company-sys/test-jirengu-com/5dcd85a204/dew-icon.png' alt=''/></div>");
   				$('body').append($rain);
   				$rain.css({'left':left});
-  				$rain.animate({'top':winHeight},1000,function(){
-  					$(this).remove();
+  				$rain.animate({
+            'top':winHeight,
+            'left':left-300
+            },2000,function(){
+  					 $(this).remove();
   				});
   				
   			}
   			function start(){
-  				timer = setInterval(rainDrop,500);
+  				timer = setInterval(rainDrop,10);
   			}
   			function end(){
   				timer && clearInterval(timer);
