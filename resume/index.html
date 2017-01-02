@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>王欢的个人简历</title>
+	<script src="css/iconfont.js"></script>
+	<style>
+		*{
+		  margin: 0;
+		  padding: 0;
+		  box-sizing:border-box;
+		}
+		a{
+		  text-decoration:none;
+		  color:inherit;
+		}
+		ul,li{
+		  list-style:none;
+		}
+		html,body{
+			width: 100%;
+			height: 100%;
+			font-family: "microsoft yahei","arial","helvetica","sans-serif";
+		}
+		.icon {
+          width: 1em; height: 1em;
+          vertical-align: -0.15em;
+          fill: currentColor;
+          overflow: hidden;
+        }
+		.clearfix:after{
+		  content:'';
+		  display:block;
+		  clear:both;
+		}
+		.left{
+			float: left;
+		}
+		.right{
+			float: right;
+		}
+
+		.bg{
+			width: 100%;
+			height: 100%;
+			background-image: url(image/bg.jpg);
+			background-size: cover;
+			background-position: center center;
+			position: fixed;
+			z-index: -1;
+		}
+
+		.personal{
+			width: 36%;
+			position: fixed;
+			z-index: 1;
+			height: 100%;
+			background: rgba(0,0,0,0.3);
+			padding-top: 130px;
+			padding-right: 60px;
+			text-align: right;
+			color: #fff;
+		}
+		.personal .head{
+			width: 100px;
+			height: 100px;
+			border-radius: 50%;
+			border: 6px solid #bdbec3;
+			padding: 5px;
+		}
+		.personal .ct{
+			padding: 0 15px;
+		}
+		.personal h1{
+			margin-top: 20px;
+		}
+		.personal h2{
+			font-size: 18px;
+			line-height: 2;
+		}
+		.personal .ct ul{
+			margin-top: 30px;
+		}
+		.personal .ct ul li{
+			line-height: 1.7;
+			margin-top: 10px;
+		}
+		.personal .ct ul li a{
+			display: inline-block;
+			position: relative;
+			margin-right: 6px;
+		}
+		.personal .ct ul li a:after{
+			position: absolute;
+			width: 100%;
+			height: 1px;
+			content: '';
+			background: #bdb7b7;
+			bottom: 0;
+			left: 0;
+		}
+		.main{
+			background: #f2f2f2;
+			width: 64%;
+			padding: 95px 0 95px 6%;
+		}
+		.main .list-box{
+			margin-bottom: 75px;
+			color: rgb(102,102,102);
+			font-size: 15px;
+		}
+		.main .list-box h2{
+			font-size: 28px;
+			color: #717171;
+			line-height: 50px;
+			position: relative;
+			display: inline-block;
+			margin-bottom: 20px;
+		}
+		.main .list-box h2:after{
+			content: '';
+			position: absolute;
+			width: 100%;
+			height: 2px;
+			background: #e26f3c;
+			left: 0;
+			bottom: 0;
+		}
+
+		.main .list-box ul,.main .list-box dl {
+		    padding-left: 20px;
+		}
+		.basic li {
+		    line-height: 50px;
+		    float: left;
+		    width: 50%;
+		}
+		.skill li {
+		    list-style-type: initial;
+		    line-height: 30px;
+		    margin: 12px 0 12px 20px;
+		}
+
+		.list-box .pro-skill{
+			padding: 12px 0;
+			margin-top: 20px;
+		}
+		.pro-skill dt{
+			width: 15%;
+			float: left;
+			margin-bottom: 12px;
+			text-align: right;
+		}
+		.pro-skill dd{
+			width: 85%;
+			height: 17px;
+			float: left;
+			margin-bottom: 18px;
+			padding-left: 15px;
+		}
+		.pro-skill .progress{
+			height: 18px;
+			background: #adada5;
+			border-radius: 16px;
+			width: 70%;
+			position: relative;
+		}
+		.pro-skill .progress .pro-bar{
+		    position: absolute;
+		    height: 100%;
+		    background: #e26f3c;
+		    border-radius: 16px;
+		}
+		.pro-skill .progress .pro-bar-html{
+		    width: 90%;
+		}
+		.pro-skill .progress .pro-bar-css{
+		    width: 90%;
+		}
+		.pro-skill .progress .pro-bar-js{
+		    width: 80%;
+		}
+		.pro-skill .progress .pro-bar-jq{
+		    width: 76%;
+		}
+		.pro-skill .progress .pro-bar-bs{
+		    width: 60%;
+		}
+		.pro-skill .progress .pro-bar-less{
+		    width: 70%;
+		}
+		.pro-skill .progress .pro-bar-vuejs{
+		    width: 50%;
+		}
+
+
+		.project{
+			margin-top: 20px;
+			padding-right: 40px;
+		}
+		.project img {
+		    width: 100%;
+		    height: 100%;
+		    vertical-align: middle;
+		}
+		.project .item{
+			overflow: hidden;
+			margin-bottom: 20px;
+		}
+		.project .item .pro-img {
+		    width: 20%;
+		    float: left;
+		    display: block;
+		}
+		.project .item .des {
+		    width: 80%;
+		    float: left;
+		    padding-left: 20px;
+		}
+		.project .item .des p{
+			margin-bottom: 10px;
+			line-height: 1.2;
+		}
+		.project .item .des .title {
+		    font-size: 20px;
+		    color: #454545;
+		    font-weight: 700;
+		    margin-bottom: 15px;
+		}
+		.project .item .des .title a {
+		    position: relative;
+		}
+		.project .item .des .title a:after {
+			content: '';
+			width: 60%;
+			height: 2px;
+			position: absolute;
+			background: #e26f3c;
+			left: 0;
+			bottom: -7px;
+		}
+	</style>
+</head>
+<body>
+	<div class="bg"></div>
+	<div class="personal left">
+		<img class="head" src="image/head.jpg" alt="">
+		<div class="ct">
+			<h1>王欢</h1>
+			<h2>前端工程师</h2>
+			<ul>
+				<li>
+					<a href="">
+						<span>26岁</span>
+						
+					</a>
+					<svg class="icon" aria-hidden="true">
+	                        <use xlink:href="#icon-msnui-female"></use>
+	                    </svg>
+					
+				</li>
+				<li>
+					<a href="">
+						<span>北京市朝阳区</span>
+						
+					</a>
+					<svg class="icon" aria-hidden="true">
+	                        <use xlink:href="#icon-map"></use>
+	                    </svg>
+					
+				</li>
+				<li>
+					<a href="">
+						<span>13439846254</span>
+						
+					</a>
+					<svg class="icon" aria-hidden="true">
+	                        <use xlink:href="#icon-iphonezhuanhuan"></use>
+	                    </svg>
+				</li>
+				<li>
+					<a href="">
+						<span>371022026@qq.com</span>
+						
+					</a>
+					<svg class="icon" aria-hidden="true">
+	                        <use xlink:href="#icon-demo25"></use>
+	                    </svg>
+				</li>
+			</ul>
+
+			<div class="social">
+				
+			</div>
+		</div>	
+	</div>
+	<div class="main right">
+		<div class="list-box">
+			<h2>个人信息</h2>
+			<ul class="basic clearfix">
+				<li>期望薪资：面议</li>
+				<li>毕业院校：河北金融学院</li>
+				<li>学历：大专</li>
+				<li>专业：软件技术</li>
+				<li>出生日期：1989.10</li>
+				<li>工作经历：一年以内</li>
+			</ul>
+		</div>
+		<div class="list-box">
+			<h2>掌握技术</h2>
+			<ul class="skill">
+				<li>熟悉HTML+CSS布局，遵循W3C规范，编写有语义化、模块化的页面代码</li>
+				<li>熟悉JavaScript、jQuery，实现日常交互效果</li>
+				<li>熟悉Ajax工作原理和实现方法，了解HTTP协议</li>
+				<li>熟练使用Git、Emmet、Markdown等前端开发工具</li>
+				<li>了解Bootsrap、Vue等常见前端框架</li>
+				<li>了解RequireJS、Gulp构建</li>
+			</ul>
+		</div>
+		<div class="list-box">
+			<h2>专业技能</h2>
+			<dl class="pro-skill clearfix">
+				<dt>HTML</dt>
+				<dd>
+					<div class="progress">
+						<div class="pro-bar pro-bar-html"></div>
+					</div>
+				</dd>
+				<dt>CSS</dt>
+				<dd>
+					<div class="progress">
+						<div class="pro-bar pro-bar-css"></div>
+					</div>
+				</dd>
+				<dt>JavaScript</dt>
+				<dd>
+					<div class="progress">
+						<div class="pro-bar pro-bar-js"></div>
+					</div>
+				</dd>
+				<dt>jQuery</dt>
+				<dd>
+					<div class="progress">
+						<div class="pro-bar pro-bar-jq"></div>
+					</div>
+				</dd>
+				<dt>Bootstrap</dt>
+				<dd>
+					<div class="progress">
+						<div class="pro-bar pro-bar-bs"></div>
+					</div>
+				</dd>
+				<dt>Less</dt>
+				<dd>
+					<div class="progress">
+						<div class="pro-bar pro-bar-less"></div>
+					</div>
+				</dd>
+				<dt>Vuejs</dt>
+				<dd>
+					<div class="progress">
+						<div class="pro-bar pro-bar-vuejs"></div>
+					</div>
+				</dd>
+
+			</dl>
+		</div>
+		<div class="list-box">
+			<h2>项目经验</h2>
+			<ul class="project">
+				<li class="item">
+					<a class="pro-img" href="">
+						<img src="image/77.jpg" alt="">
+					</a>
+					<div class="des">
+						<p class="title"> <a href="../jd/index.html">仿京东</a></p>
+						<p>简介：高度还原京东商城页面，实现像素级重构</p>
+						<p>主要运用技术：HTML+CSS、jQuery</p>
+					</div>
+				</li>
+				<li class="item">
+					<a class="pro-img" href="">
+						<img src="image/77.jpg" alt="">
+					</a>
+					<div class="des">
+						<p class="title"> <a href="../rain.html">下雨</a></p>
+						<p>简介：</p>
+						<p>主要运用技术：</p>
+					</div>
+				</li>
+				<li class="item">
+					<a class="pro-img" href="">
+						<img src="image/77.jpg" alt="">
+					</a>
+					<div class="des">
+						<p class="title"> <a href="../waterfall/waterfall-ajax.html">瀑布流布局</a></p>
+						<p>简介：</p>
+						<p>主要运用技术：</p>
+					</div>
+				</li>
+				<li class="item">
+					<a class="pro-img" href="">
+						<img src="image/77.jpg" alt="">
+					</a>
+					<div class="des">
+						<p class="title"> <a href="../barrels/index.html">木桶布局</a></p>
+						<p>简介：</p>
+						<p>主要运用技术：</p>
+					</div>
+				</li>
+				<li class="item">
+					<a class="pro-img" href="">
+						<img src="image/77.jpg" alt="">
+					</a>
+					<div class="des">
+						<p class="title"> <a href="">音乐播放器</a></p>
+						<p>简介：</p>
+						<p>主要运用技术：</p>
+					</div>
+				</li>				
+			</ul>
+		</div>
+		<div class="list-box">
+			<h2>关于插件</h2>
+			<ul class="project">
+				<li class="item">
+					<a class="pro-img" href="">
+						<img src="image/77.jpg" alt="">
+					</a>
+					<div class="des">
+						<p class="title"> <a href="">轮播</a></p>
+						<p>简介：</p>
+						<p>主要运用技术：</p>
+					</div>
+				</li>
+				<li class="item">
+					<a class="pro-img" href="">
+						<img src="image/77.jpg" alt="">
+					</a>
+					<div class="des">
+						<p class="title"> <a href="">懒加载</a></p>
+						<p>简介：</p>
+						<p>主要运用技术：</p>
+					</div>
+				</li>
+				<li class="item">
+					<a class="pro-img" href="">
+						<img src="image/77.jpg" alt="">
+					</a>
+					<div class="des">
+						<p class="title"> <a href="">回到顶部</a></p>
+						<p>简介：</p>
+						<p>主要运用技术：</p>
+					</div>
+				</li>				
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>木桶布局</title>
+
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		.barrels{
+			width: 1000px;
+			margin: 0 auto;
+		}
+		.barrels-item{
+			margin-bottom: 10px;
+			overflow: hidden;
+		}
+		.barrel-img{
+			float: left;
+		}
+		#load{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="barrels">
+		<!-- <div class="barrels-item">
+			<div class="barrel-img">
+				<img src="http://placehold.it/117x64/b1fece/fff" alt="">
+			</div>
+		</div> -->
+	</div>
+	<div id="load">其实我是看不见的</div>
+
+	<script text="javascrsipt/text" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script>
+		var lazyLoad = {
+			init:function($node,handler){
+				this.$node = $node;
+				this.handler = handler;
+
+				this.checkShow();
+				this.bind();
+			},
+			bind:function(){
+				var me = this,
+					clock = null
+
+				$(window).on('scroll',function(){
+					clock && clearTimeout(clock);
+					clock = setTimeout(function(){
+						 me.checkShow();
+					},300)
+				})
+			},
+			checkShow: function() {
+			    var me = this;
+			    this.$node.each(function() {
+			      var $cur = $(this);
+			      if (me.isShow($cur) ) {
+			        me.handler && me.handler.call(this, this);
+			      }
+			    });
+			},
+			isShow:function($node){
+				var nodeH = $node.offset().top,
+					winH = $(window).height(),
+					scrollH = $(window).scrollTop();
+				if (nodeH < winH+scrollH) {
+					return true;
+				}else{
+					return false;
+				}
+			}
+		}
+	</script>
+	<script>
+		function Barrels($ct,data){
+			this.$ct = $ct;
+			this.data = data;
+			this.rowList = [];
+			this.baseHeight = 200;
+			this.carrPage = 1;
+			this.num = 20;
+			this.loadImg();
+		}
+		Barrels.prototype = {
+			loadImg:function(){
+				var _this = this;
+				$.each(_this.data,function(idx,url){
+				var img = new Image();
+				img.src = url;
+
+				img.onload = function(){
+					var imgInfo = {
+						target: img,
+						width: _this.baseHeight*(img.width/img.height),
+						height: _this.baseHeight
+					}
+					_this.render(imgInfo);
+					}
+				});
+				
+			},
+			render:function(imgInfo){
+				var _this = this,
+					clientWidth = _this.$ct.width(),
+					rowWidth = 0,	
+					rowHeight = 0,
+					lastImgInfo = imgInfo;
+
+				_this.rowList.push(imgInfo);
+
+				$.each(this.rowList,function(idx,info){
+					rowWidth += info.width;
+					if (rowWidth > clientWidth) {
+						_this.rowList.pop();
+						rowWidth = rowWidth - lastImgInfo.width;
+        				rowHeight = clientWidth * _this.baseHeight / rowWidth;
+
+						_this.creatRow(rowHeight);
+						_this.rowList = [];
+						_this.rowList.push(lastImgInfo);
+					}
+				});
+
+			},
+			creatRow:function(rowHeight){
+				var $rowCt = $('<div class="barrels-item"></div>');
+				$.each(this.rowList,function(idx,info){
+					var $imgCt = $('<div class="barrel-img"></div>'),
+						$img = $(info.target);
+						$img.height(rowHeight);
+						$imgCt.append($img);
+						$rowCt.append($imgCt);
+				});
+
+				this.$ct.append($rowCt);
+			}
+		}			
+
+		var $load = $("#load");
+		var currPage = 1;
+		var num = 20;
+		lazyLoad.init($load,function(){
+			getData(function(data){
+				var barrels = new Barrels($('.barrels'),data);
+			});
+		});
+		function getData(callback){
+	        $.ajax({
+				url: 'http://platform.sina.com.cn/slide/album_tech',
+				type: 'get',
+				dataType: 'jsonp',
+				jsonp:"jsoncallback",
+				data: {
+					app_key: '1271687855',
+					format:'json',
+					size:'img',
+					num: num,
+					page: currPage
+				},
+				success: function(ret){
+					if(ret.status.code == 0){
+						var data = [];
+						$.each(ret.data,function(idx,info){
+							data.push(info.img_url);
+						});
+						callback(data)
+						currPage++;
+					}
+				}
+			})
+    	}
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>分页组件</title>
+	<style>
+		body{
+			padding: 100px 200px;
+		}
+
+		.pagination{
+			list-style: none;
+			margin-top: 20px;
+		}
+		.pagination li{
+		    float: left;
+		    padding: 5px 8px;
+		    border: 1px solid #aaa;
+		    border-right: none;
+		}
+		.pagination .paging.active{
+			background: #aaa;
+		}
+		.pagination .next {
+		    border-right: 1px solid #aaa;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="page">
+		<ul class="show">
+			
+		</ul>
+
+		<ul class="pagination" data-total=51 data-page-size=5>
+			
+		</ul>
+	</div>
+	
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+    	var $dataCt = $('.show'),
+    		$pagination = $('.pagination'),
+    		pageSize = $pagination.attr('data-page-size'),
+    		countNum = $pagination.attr('data-total');
+
+    	function Pagination(options) {
+
+    		this.init(options);
+    		this.render();
+    		this.bind();
+    	}
+
+    	Pagination.prototype = {
+    		init:function(options){
+    			$.extend(this,options);
+    			this.currIdx = 1;
+    			this.pageNum = Math.ceil(this.countNum/this.pageSize);
+    		},
+    		render:function(){
+    			var _this = this;
+    			var html = '<li class="prev"><<</li>';
+    			for(var i = 1;i<=_this.pageNum;i++){
+    				if (_this.currIdx == i) {
+    					html += '<li class="paging active" data-page="'+i+'">'+i+'</li>';
+    				}else{
+    					html += '<li class="paging " data-page="'+i+'">'+i+'</li>';
+    				}
+    						
+    			}
+    			html += '<li class="next">>></li>';
+    			_this.$ct.append(html);
+    			_this.callback(_this.currIdx);
+    		},
+    		bind:function() {
+    			var _this = this;
+    			$paging = this.$ct.find('.paging');
+    			$prev = this.$ct.find('.prev');
+    			$next = this.$ct.find('.next');
+    			$paging.on('click',function(){
+    				_this.currIdx = parseInt($(this).attr('data-page'));
+    				_this.callback(_this.currIdx);
+    			});
+    			$prev.on('click',function(){
+    				if (_this.currIdx == 1) { return; }
+    				_this.currIdx--;
+    				_this.callback(_this.currIdx);
+    			});
+    			$next.on('click',function(){
+    				if (_this.currIdx == _this.pageNum) { return; }
+    				_this.currIdx++;
+    				_this.callback(_this.currIdx);
+    			});
+    		}
+    	}
+
+    	var page = new Pagination({
+    		$ct: $pagination,
+    		pageSize:pageSize,
+    		countNum:countNum,
+    		callback:callback
+    	});
+    	function callback(pageIdx){
+    		$.get('/getComments',{
+    			page:pageIdx
+    		}).done(function(data){
+    			var htmls = '';
+    			$pagination.children().eq(pageIdx).addClass('active').siblings().removeClass('active');
+    			$.each(data,function(idx,info){
+    				htmls += '<li>'+info+'</li>'
+    			});
+    			$dataCt.html(htmls);
+    		});
+    	}
+    </script>
+</body>
+</html>

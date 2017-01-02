@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>pagination</title>
+  <style>
+
+    .layout {
+      width: 900px;
+      margin: 0 auto;
+    }
+
+    .pagination:after{
+      content: '';
+      display: block;
+      clear: both;
+    }
+    .pagination li{
+      float: left;
+      border: 1px solid #aaa;
+      border-right: none;
+      list-style: none;
+    }
+    .pagination li:first-child{
+      border-radius: 3px 0 0 3px;
+    }
+    .pagination li:last-child{
+      border-radius: 0 3px 3px 0;
+      border-right: 1px solid #aaa;
+    }
+    .pagination li a{
+      min-width: 30px;
+      height: 28px;
+      line-height: 28px;
+      display: block;
+      font-size: 14px;
+      color: #333;
+      text-decoration: none;
+      text-align: center;
+    }
+    .pagination li.active a{
+      background: #aaa;
+      color: #fff;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="layout">
+
+    <div class="comments">
+      <ul>
+        <% comments.forEach(function(comment){ %>
+          <li><%= comment %>
+        <% }) %>
+      </ul>
+
+    </div>
+    <ul class="pagination">
+      <li>
+        <a href="?page=<%= (pagination.pageIdx>2 ?(pagination.pageIdx-1):1) %>" aria-label="Previous">
+          <span >&laquo;</span>
+        </a>
+      </li>
+
+      <% for(var i = 1;i <= Math.ceil(pagination.totalLen/pagination.pageSize);i++ ) {%>
+        <li class="<% if(i==pagination.pageIdx){ %> active <% } %> ">
+
+          <a href="?page=<%= i %>">
+            <%= i %>
+          </a>
+        </li>
+        <% } %>
+          <li>
+            <a href="?page=<%= (pagination.pageIdx < Math.ceil(pagination.totalLen/pagination.pageSize) ?(pagination.pageIdx+1):Math.ceil(pagination.totalLen/pagination.pageSize)) %>" aria-label="Next">
+              <span>&raquo;</span>
+            </a>
+          </li>
+    </ul>
+
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+      function Pagination() {
+
+      }
+      Pagination.prototype = {
+
+      }
+    </script>
+</body>
+
+</html>
