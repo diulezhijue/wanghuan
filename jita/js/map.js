@@ -2,7 +2,7 @@
     function initMap(){
       createMap();//创建地图
       setMapEvent();//设置地图事件
-      addMapControl();//向地图添加控件
+      // addMapControl();//向地图添加控件
       addMapOverlay();//向地图添加覆盖物
     }
     function createMap(){ 

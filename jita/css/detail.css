@@ -1,7 +1,14 @@
 .wrap{
 	width: 1050px;
-	height: 590px;
+	/*height: 100%;*/
 	display: block;
+}
+@media (min-height: 600px) {
+    .wrap{
+        position: relative;
+        top: 50%;
+        transform: translateY(-270px);
+    }
 }
 .col-left{
 	width: 180px;
@@ -51,6 +58,10 @@
 }
 .col-left .h-middle {
     background: rgba(0,0,0,.2);
+    overflow: scroll;
+}
+.col-left .h-middle::-webkit-scrollbar{
+    width: 0;
 }
 
 
