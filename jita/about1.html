@@ -1,22 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<meta charset="UTF-8">
-	<title>联系我们</title>
-	<link rel="stylesheet" type="text/css" href="css/common.css">
-	<link rel="stylesheet" type="text/css" href="css/detail.css">
-	<script type="text/javascript" src="http://api.map.baidu.com/api?key=46ce9d0614bf7aefe0ba562f8cf87194&v=1.0&services=false"></script>
+  <meta charset="utf-8">
+  <title>联系我们</title>
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/detail1.css">
+  <script type="text/javascript" src="http://api.map.baidu.com/api?key=46ce9d0614bf7aefe0ba562f8cf87194&v=1.0&services=false"></script>
 </head>
 <body>
-	<div class="wrap clearfix">
-		<div class="col-left">
-			<div class="logo h-top">
-				<img src="images/logo.png" alt="">
-			</div>
-			<div class="h-middle">
-				<div class="product-intro">
-					<pre style="white-space: pre-line;font-size: 11px;">
-						地  址
+<div class="wrap">
+  <div class="left">
+    <div class="col-top">
+    	<div class="logo">
+    		<a href="">
+    			<img src="images/logo.png" alt="">
+    		</a>
+    	</div>
+    </div>
+    <div class="col-middle left-middle">
+		<div class="left-description">
+			<pre style="white-space:pre-line;"> 
+				地  址
 北京市东城区东兴隆街58号
 北京汇写字楼430室
 北京昱宁文化有限公司
@@ -40,72 +44,71 @@ QQ
 北京昱宁文化有限公司 大智吉他网
 www.dazhiguitar.com
 京ICP备11039031号
-					</pre>				
-				</div>
-			</div>
-			<div class="h-bottom">
-				<div class="home">
-					<a href="">
-						首页
-					</a>
-				</div>
-			</div>
+			 </pre>
 		</div>
+    </div>
+    <div class="col-bottom left-home"> 
+		<div class="home">
+			<a href="">首页</a>
+		</div>	
+    </div>
+  </div>
+  <div class="middle"> 
+		<div class="col-top m-title"> 
+			<h3 class="title">联系我们</h3>
+		 </div> 
 		<div class="col-middle">
-			<div class="h-top">
-				<h3 class="title">联系我们</h3>
-			</div>
-			<div class="h-middle">
-				 <div style="width:100%;height:100%;border:#ccc solid 1px;font-size:12px" id="map"></div>
-			</div>
-			<div class="h-bottom">
-				<ul class="nav clearfix">
-					<li>
-						<a href="">
-							<span class="circle"></span><br>
-							<span>最新资讯</span>
-						</a>
-					</li>
-					<li>
-						<a href="">
-							<span class="circle"></span><br>
-							<span>吉他商店</span>
-						</a>
-					</li>
-					<li>
-						<a href="">
-							<span class="circle"></span><br>
-							<span>乐普下载</span>
-						</a>
-					</li>
-					<li>
-						<a href="">
-							<span class="circle"></span><br>
-							<span>吉他教学</span>
-						</a>
-					</li>
-					<li>
-						<a href="">
-							<span class="circle"></span><br>
-							<span>演奏示范</span>
-						</a>
-					</li>
-					<li  class="aciton">
-						<a href="">
-							<span class="circle"></span><br> 	
-							<span>联系我们</span>
-						</a>
-					</li>
-				</ul>
+			<div style="width:100%;height:100%;border:#ccc solid 1px;font-size:12px" id="map"></div>
+		</div> 
+		<div class="col-bottom m-nav"> 
+			<ul class="nav clearfix">
+				<li>
+					<a href="">
+						<span class="circle"></span><br>
+						<span>最新资讯</span>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<span class="circle"></span><br>
+						<span>吉他商店</span>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<span class="circle"></span><br>
+						<span>乐普下载</span>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<span class="circle"></span><br>
+						<span>吉他教学</span>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<span class="circle"></span><br>
+						<span>演奏示范</span>
+					</a>
+				</li>
+				<li  class="aciton">
+					<a href="">
+						<span class="circle"></span><br> 	
+						<span>联系我们</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+   </div>
+  <div class="right">
+		<div class="col-top r-search">
+			<div class="search-box">
+				<input class="search-ipt" type="" name="" placeholder="">
+				<a class="search-icon"></a>
 			</div>
 		</div>
-		<div class="col-right">
-			<div class="h-top">
-				<div class="search-box">
-					<input class="search-ipt" type="" name="" placeholder="">
-					<a class="search-icon"></a>
-				</div>
-			</div>
+		<div class="col-bottom">
 			<div class="lesson-box">
 				<ul class="lesson-list clearfix">
 					<li>
@@ -198,8 +201,7 @@ www.dazhiguitar.com
 				<a class="btn-down btn"></a>
 			</div>
 		</div>
-	</div>
-
-	<script type="text/javascript" src="js/map.js"></script>
+  </div>
+</div>
 </body>
 </html>
