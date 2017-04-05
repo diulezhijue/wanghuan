@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>王欢的计算器</title>
+	<style>
+		*{
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+		.clearfix:after{
+			content: '';
+			clear: both;
+			display: block;
+		}
+		.wrap{
+			width: 262px;
+			border: 1px solid #e5e5e5;
+			border-radius: 5px;
+			margin: 50px auto;
+			background: #f8f8f8;
+			padding: 10px 10px 15px;
+		}
+		.ipt{
+			width: 100%;
+			padding: 10px 8px;
+			outline: none;
+			border: 1px solid #e5e5e5;
+			border-radius: 5px;
+			background: #fff;
+			text-align: right;
+		}
+		.col {
+		    float: left;
+		    width: 40px;
+		    height: 40px;
+		    margin-top: 11px;
+		    border: 1px solid #c5c4c4;
+		    background: #f7f7f7;
+		    text-align: center;
+		    line-height: 40px;
+		    border-radius: 5px;
+		    margin-left: 10px;
+		    font-weight: bold;
+		}
+		.clear-margin-left{
+			margin-left: 0;
+		}
+		.col-2{
+			width: 90px;
+		}
+		.blue{
+			color: #00b4ff;
+		}
+		.red{
+			color: #ff5050;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<input type="text" class="ipt" value="0">
+		<div class="btn-list clearfix">
+
+			<div class="col red clear-margin-left">C</div>
+			<div class="col blue">+/-</div>
+			<div class="col blue">%</div>
+			<div class="col col-2 red">←</div>
+
+			<div class="col clear-margin-left">7</div>
+			<div class="col">8</div>
+			<div class="col">9</div>
+			<div class="col blue">+</div>
+			<div class="col blue">-</div>
+
+			<div class="col clear-margin-left">4</div>
+			<div class="col">5</div>
+			<div class="col">6</div>
+			<div class="col blue">×</div>
+			<div class="col blue">÷</div>
+
+			<div class="col clear-margin-left">1</div>
+			<div class="col">2</div>
+			<div class="col">3</div>
+			<div class="col blue">×²</div>
+			<div class="col blue">√</div>
+
+			<div class="col col-2 clear-margin-left">0</div>
+			<div class="col">.</div>
+			<div class="col col-2 red">=</div>
+		</div>
+	</div>
+</body>
+</html>
