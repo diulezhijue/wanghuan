@@ -1,12 +1,7 @@
 body::-webkit-scrollbar{
     width:0;
 }
-.wrap{
-  height:100%;
-  width:1050px;
-  display:flex;
-  margin:0 auto;
-}
+
 .left{flex:220;}
 .middle{flex:700;}
 .right{flex:370;} 
@@ -41,6 +36,11 @@ body::-webkit-scrollbar{
 	overflow-y: scroll; 
 	text-align: center;
 } 
+@media (min-height: 700px) {
+    .left-description{
+        height: 100%;
+    }
+}
 .left-description::-webkit-scrollbar{ 
 	width: 0;
 } 
@@ -97,38 +97,16 @@ h3.title:hover {
 	background: rgba(0,0,0,.3);
 }
 
-.r-search{
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-.r-search .search-box{
-	margin: 0;
-}
-.r-search .search-box .search-ipt {
-    outline: none;
-    border: 1px solid #fff;
-    box-shadow: 0 0 6px rgb(157,158,159);
-    border-radius: 15px;
-    width: 208px;
-    height: 24px;
-    background-color: #000;
-    text-indent: 30px;
-    color: #fff;
-    position: relative;
-}
-.r-search .search-box .search-icon {
-    display: inline-block;
-    position: absolute;
-    width: 11px;
-    height: 11px;
-    top: 7px;
-    background: url(../images/search.png) no-repeat 0 0;
-    left: 7px;
-}
+
 .lesson-box {
     margin-top: 35px;
-    margin-left: 10px;
+    margin-left: 0;
+    padding: 0 35px;
+}
+@media (min-height: 700px) {
+    .lesson-box{
+        /*margin-top: 90px;*/
+    }
 }
 
 .news-box{
@@ -137,6 +115,11 @@ h3.title:hover {
     height: 354px;
     padding: 37px 0;
     text-align: center;
+}
+@media (min-height: 700px) {
+    .news-box{
+        height: 100%;
+    }
 }
 .news-box .news-list {
     height: 100%;
@@ -200,6 +183,13 @@ h3.title:hover {
     height:35px;
     background:#ffe737;
     border-radius: 5px;
+}
+.left-description p {
+    font-size: 10px;
+    margin-bottom: 12px;
+}
+.left-description .product-title{
+    font-size: 16px;
 }
 
 

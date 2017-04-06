@@ -26,14 +26,29 @@ a,a:hover{
 	color: inherit;
 }
 .wrap{
-    width: 996px;
-    margin: 0 auto;
-    display: flex;
-    height: 560px;
-    position: relative;
-    /* margin-top: 50px; */
-    /*top: 50%;
-    margin-top: -280px;*/
+  height:100%;
+  width:1050px;
+  display:flex;
+  margin:0 auto;
+}
+@media (min-height: 700px) {
+    .wrap{
+        width: 1280px;
+    }
+}
+.out-circle{
+	border: 1px solid #fff;
+	border-radius: 50%;
+	padding: 5px;
+}
+.in-circle{
+	width: 100%;
+	height: 100%;
+	border: 5px solid  #fff;
+	border-radius: 50%;
+	overflow: hidden;
+		position: relative;
+		background-color: #000;
 }
 
 .lesson-box{
@@ -47,7 +62,7 @@ a,a:hover{
 .lesson-box .lesson-list li{
 	float: left;
 	width: 50%;
-	margin-bottom: 5px;
+	margin-bottom: 20px;
 }
 .lesson-box .out-circle {
     width: 90px;
@@ -55,10 +70,11 @@ a,a:hover{
     position: relative;
     left: 50%;
     transform: translateX(-50%);
+    padding: 2px;
 }
 .lesson-box .out-circle:hover {
     padding: 0;
-    border-width: 11px;
+    border-width: 8px;
 }
 .lesson-box .out-circle:hover .in-circle{
 	border-width: 0;
@@ -95,20 +111,7 @@ a,a:hover{
 		font-weight: 600;
 }
 
-.out-circle{
-	border: 1px solid #fff;
-	border-radius: 50%;
-	padding: 5px;
-}
-.in-circle{
-	width: 100%;
-	height: 100%;
-	border: 5px solid  #fff;
-	border-radius: 50%;
-	overflow: hidden;
-		position: relative;
-		background-color: #000;
-}
+
 
 .btn{
 	background-image: url(../images/sprite.png);
@@ -178,29 +181,34 @@ a,a:hover{
 	background: #fff;
 }
 
-.search-box{
-	margin: 15px auto 28px auto;
-	text-align: center;
-	position: relative;
+.r-search{
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
-.search-box .search-ipt{
+.r-search .search-box{
+	margin: 0;
+    text-align: center;
+    position: relative;
+}
+.r-search .search-box .search-ipt {
     outline: none;
     border: 1px solid #fff;
     box-shadow: 0 0 6px rgb(157,158,159);
     border-radius: 15px;
-    width: 209px;
+    width: 208px;
     height: 24px;
     background-color: #000;
     text-indent: 30px;
     color: #fff;
     position: relative;
 }
-.search-box .search-icon{
-	display: inline-block;
-    position: relative;
+.r-search .search-box .search-icon {
+    display: inline-block;
+    position: absolute;
     width: 11px;
     height: 11px;
-    top: 2px;
+    top: 7px;
     background: url(../images/search.png) no-repeat 0 0;
-    left: -50%;
+    left: 7px;
 }
