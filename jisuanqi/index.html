@@ -60,7 +60,7 @@
 </head>
 <body>
 	<div class="wrap">
-		<input type="text" class="ipt" value="0">
+		<input type="text" class="ipt" value="0" id="result">
 		<div class="btn-list clearfix">
 
 			<div class="col red clear-margin-left">C</div>
@@ -91,5 +91,102 @@
 			<div class="col col-2 red">=</div>
 		</div>
 	</div>
+
+	<script>
+		String.prototype.trim = function() {
+		  return this.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+		}
+	</script>
+
+	<script>
+
+		var calculator = function(){
+			this.input = document.getElementById('result');
+			this.temp = 0;
+			this.handle = 0;
+			this.isClear = false;
+			this.init();
+		}
+		calculator.prototype = {
+			init:function(){
+				this.bind();
+			},
+			bind:function(){
+				var _this = this;
+				var el = document.getElementsByClassName('col');
+				for(var i=0;i<el.length;i++){
+					el[i].onclick = function(e){
+						_this.doInput(this.innerHTML);
+					}
+				}
+			},
+			doInput:function(action){
+				var _this = this;
+				var action = action.trim();
+				_this.tempValue = _this.input.value;
+				switch(action){
+					case 'C':
+						_this.input.value  = 0;
+						_this.temp = 0;
+						_this.handle = '';
+						_this.isClear = false;
+						break;
+					case '=':
+
+						break;
+					case '+':
+					case '-':
+					case '×':
+					case '÷':
+						_this.isClear = true;
+						
+						if (_this.temp != 0) {
+							_this.input.value = _this.calc(_this.temp,_this.input.value,_this.handle);
+						}
+						_this.handle = action;
+						_this.temp = _this.input.value;
+						break;
+					case '.':
+						if (_this.input.value.indexOf('.') == '-1') {
+							_this.input.value = _this.input.value+action;
+						}	
+						break;
+					default:
+						if (_this.isClear) {
+							_this.input.value = Number(action);
+							_this.isClear = false;
+						}else{
+
+							_this.input.value = Number(_this.input.value+action);
+						}
+						break;
+						
+				}
+			},
+			calc:function(num1,num2,handle){
+				var result = 0;
+				var num1 = Number(num1);
+				var num2 = Number(num2);
+				switch(handle){
+					case '+':
+						result = num1 + num2;
+						break;
+					case '-':
+						result = num1 - num2;
+						break;
+					case '×':
+						result = num1*num2;
+						break;
+					case '÷':
+						result = num1/num2;
+						break;
+				}
+				return result;
+			}
+
+		}
+
+		new calculator();
+	</script>
 </body>
 </html>
