@@ -1,22 +1,23 @@
 section{
-	float: left;
-	overflow: hidden;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
 }
-.cl-1,.cl-3{
-	flex: 5;
+.index-top{
+	flex: 150;
 }
-.cl-2{
-	flex: 6;
-	text-align: center;
+.index-middle{
+	flex: 500;
+}
+.index-bottom{
+	flex: 130;
+}
+.index-top .logo{
+	margin-top: 23px;
 }
 
-.logo{
-	margin-top: 15px;
-	width: 107px;
-	height: 50px;
-}
 .intro{
-    margin-top: 128px;
+    margin-top: 165px;
     position: relative;
     padding-left: 17px;
 }
@@ -30,19 +31,18 @@ section{
 	background: #fff;
 }
 
-
-
-
-
+.r-search .search-box{
+	margin-top: -23px;
+}
 
 .slide{
 	width: 100%;
-	height: 297px;
+	height: 300px;
 	position: relative;
 }
 .slide .out-circle{
-	width: 297px;
-	height: 297px;
+	width: 300px;
+	height: 300px;
 	margin-left: 50%;
 	transform: translateX(-50%);
 	border-width: 2px;
@@ -55,37 +55,32 @@ section{
 .slide .slide-box{
 	position: absolute;
     height: 100%;
-    left: -17px;
-    top: -17px;
   	width:900px;
 }
-.slide li{
-	width: 279px;
-	height: 279px;
-	border-radius: 50%;
-	float: left;
+.slide .slide-box img{
+	width: 266px;
+	height: 266px;
+}
+.slide .slide-item .data{
+	display: none;
 }
 .slide-focus{
 	width: 100%;
 	padding: 25px 0;
 	text-align: center;
 }
-.slide-focus ul{
+.slide-focus a{
 	display: inline-block;
-	padding: 10px;
-}
-.slide-focus ul li{
 	height: 25px;
 	margin-left: 20px;
 	margin-right: 20px;
 	background: #fff;
-	float: left;
 	box-sizing: content-box;
 	border: 1px solid rgb(154,179,184);
 }
-.slide-focus ul li:hover,.slide-focus ul li.action{
+.slide-focus a:hover,.slide-focus a.activeSlide{
 	width: 1px;
 }
-
-
-
+.lesson-box{
+	padding: 0 40px;
+}
