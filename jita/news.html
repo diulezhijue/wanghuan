@@ -152,6 +152,12 @@
 
 
 				</div>
+				<div class="content">
+					最新资讯2
+				</div>
+				<div class="content">
+					最新资讯3
+				</div>
 			</div>
 		</div> 
 		<div class="col-bottom m-nav"> 
@@ -344,5 +350,12 @@
 </div>
 	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script src="js/common.js"></script>
+	<script>
+		$('.news-list').on('click','li',function(e){
+			e.preventDefault();
+			var index = $(this).index();
+			$('.main-content').find('.content').eq(index).css({'display':'block'}).siblings().css({'display':'none'});
+		});
+	</script>
 </body>
 </html>

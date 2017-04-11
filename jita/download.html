@@ -20,8 +20,8 @@
 		<div class="news-box">
 			<div class="overflow-box">
 				<ul class="news-list">
-					<li><a href="">《乐谱00001》</a></li>
-					<li><a href="">《乐谱00002》</a></li>
+					<li><a href="" data-src="images/music_score.jpg">《乐谱00001》</a></li>
+					<li><a href="" data-src="images/yuepu.jpeg">《乐谱00002》</a></li>
 					<li><a href="">《乐谱00003》</a></li>
 					<li><a href="">《乐谱00004》</a></li>
 					<li><a href="">《乐谱00005》</a></li>
@@ -252,5 +252,11 @@
 </div>
 	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script src="js/common.js"></script>
+	<script>
+		$('.news-list').on('click','li',function(e){
+			e.preventDefault();
+			$('.load-img img').attr('src',$('a',$(this)).attr('data-src'))
+		});
+	</script>
 </body>
 </html>

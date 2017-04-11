@@ -254,5 +254,16 @@
 
 	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script src="js/common.js"></script>
+	<script>
+		//左侧列表点击
+		!(function(){
+		  $('.news-box .news-list').on('click','li',function(e){
+		      e.preventDefault();
+		      var src = $('a',$(this)).attr('data-src');
+		      var newVideo = $('<video><source src="'+src+'" type="video/mp4"></video>')
+		      $('.video-box').html(newVideo);
+		  });
+		})()
+	</script>
 </body>
 </html>

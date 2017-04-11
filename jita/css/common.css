@@ -69,7 +69,7 @@ a,a:hover{
 .lesson-box .lesson-list li{
 	float: left;
 	width: 50%;
-	margin-bottom: 20px;
+	margin: 10px 0;
 }
 .lesson-box .out-circle {
     width: 90px;
@@ -110,7 +110,7 @@ a,a:hover{
 .lesson-box .lesson-list .des:after{
 	right: 3px;
 }
-@media (min-height: 700px;) {
+@media (min-height: 700px) {
 	.lesson-box .lesson-list .des:before{
 	 	left: 11px;
 	}

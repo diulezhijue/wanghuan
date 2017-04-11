@@ -15,11 +15,21 @@ section{
 .index-top .logo{
 	margin-top: 23px;
 }
+@media (min-height: 700px) {
+	.index-top .logo{
+		margin-left: 35px;
+	}
+}
 
 .intro{
-    margin-top: 165px;
+    margin-top: 125px;
     position: relative;
     padding-left: 17px;
+}
+@media (min-height: 700px) {
+	.intro{
+		margin-left: 35px;
+	}
 }
 .intro .split-left{
 	position: absolute;

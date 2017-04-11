@@ -3,15 +3,27 @@
     this.$container = $container;
     this.$list = $container.find('ul');
     this.listHeight = this.$list.outerHeight(true);
-    this.boxHeight = $container.find('.overflow-box').outerHeight(true);
     this.moveHeight = $container.find('li').outerHeight(true);
     this.$up = $container.find('.btn-up');
     this.$down = $container.find('.btn-down');  
+    this.showNum = 0;
     this.animation = false;
 
-    this.bind();
+    this.init();
   }
   Move.prototype = {
+    init:function(){
+      if (this.$container.hasClass('example-box')) {
+        this.showNum = 8;
+      }else if (this.$container.hasClass('lesson-box')) {
+        this.showNum = 3;
+      }else{
+        this.showNum = 10;
+      }
+      this.$container.find('.overflow-box').css({height:this.moveHeight*this.showNum});
+      this.boxHeight = this.$container.find('.overflow-box').outerHeight(true);
+      this.bind();
+    },
     bind:function(){
       var _this = this;
       this.$up.on('click',function(){
@@ -55,12 +67,4 @@
 })()
 
 
-//左侧列表点击
-!(function(){
-  $('.news-box .news-list').on('click','li',function(e){
-      e.preventDefault();
-      var src = $('a',$(this)).attr('data-src');
-      var newVideo = $('<video autoplay="autoplay"><source src="'+src+'" type="video/mp4"></video>')
-      $('.video-box').html(newVideo);
-  });
-})()
+

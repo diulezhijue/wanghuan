@@ -125,10 +125,21 @@ h3.title:hover {
 }
 .news-box .news-list li a {
     display: inline-block;
-    padding: 8px 0 8px 33px;
+    padding: 8px 0 8px 30px;
     width: 100%;
     position: relative;
     white-space: nowrap;
+}
+@media (min-height: 700px) {
+    .news-box .news-list li a{
+        padding: 12px 0 12px 30px;
+    }
+}
+.example-box{
+    text-align: center;
+}
+.example-box .news-list li a{
+    padding: 8px 0 8px 30px;
 }
 .news-box .news-list li a:before {
     display: block;
