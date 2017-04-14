@@ -132,7 +132,12 @@
 						_this.isClear = false;
 						break;
 					case '=':
-
+						if (!_this.isClear) {
+							_this.input.value = _this.calc(_this.temp,_this.input.value,_this.handle);
+							_this.handle = '';
+						}
+						_this.isClear = true;
+						_this.temp = 0;
 						break;
 					case '+':
 					case '-':
@@ -147,6 +152,10 @@
 						_this.temp = _this.input.value;
 						break;
 					case '.':
+						if (_this.isClear) {
+							_this.input.value = 0;
+							_this.isClear = false;
+						}
 						if (_this.input.value.indexOf('.') == '-1') {
 							_this.input.value = _this.input.value+action;
 						}	
@@ -167,6 +176,7 @@
 				var result = 0;
 				var num1 = Number(num1);
 				var num2 = Number(num2);
+				console.log(num1,handle,num2);
 				switch(handle){
 					case '+':
 						result = num1 + num2;
