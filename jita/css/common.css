@@ -234,10 +234,10 @@ embed {
 }
 
 .nav li {
-    padding: 10px 4px 4px;
+    padding: 10px 2px 4px;
     float: left;
     font-size: 11px;
-    transition: all .3
+    transition: all .3s;
 }
 
 .nav li .circle {

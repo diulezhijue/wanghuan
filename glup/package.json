@@ -1,0 +1,40 @@
+{
+  "name": "task41-gulp",
+  "version": "1.0.0",
+  "description": "gulp demos",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "gulp"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "browser-sync": "^2.9.11",
+    "gulp-clean": "^0.3.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-htmlmin": "^1.2.0",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-minify-css": "^1.2.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-ruby-sass": "^2.0.5",
+    "gulp-shell": "^0.5.1",
+    "gulp-ssh": "^0.5.3",
+    "gulp-uglify": "^1.4.2",
+    "png-sprite": "^0.1.1",
+    "run-sequence": "^1.1.4",
+    "gulp-jshint": "^2.0.4",
+    "gulp-rev": "^7.1.2",
+    "gulp-rev-collector": "^1.0.5",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-htmlmin": "^1.3.0",
+    "gulp-jshint": "^2.0.4",
+    "gulp-minify-html": "^1.0.6",
+    "imagemin-pngquant": "^5.0.0",
+    "jshint": "^2.9.4"
+  }
+}
