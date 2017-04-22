@@ -32,8 +32,16 @@
 		<section style="flex: 4;">
 			<div class="index-top r-search">
 				<div class="search-box">
-					<input class="search-ipt" type="" name="" placeholder="">
+					<input class="search-ipt" type="" name="" placeholder="" value="">
 					<a class="search-icon"></a>
+					<ul class="search-list">
+						<li><a href="">xxxxxxx</a></li>
+						<li><a href="">xxxxxxx</a></li>
+						<li><a href="">xxxxxxx</a></li>
+						<li><a href="">xxxxxxx</a></li>
+						<li><a href="">xxxxxxx</a></li>
+						
+					</ul>
 				</div>
 			</div>
 			<div class="index-middle">
@@ -285,6 +293,21 @@
 		    });
 			
 		});
+		(function(){
+			
+			$('.search-ipt').on('keyup',function(e){
+				e.stopPropagation();
+				// console.log($(this).val());
+				if ($(this).val() == "") { 
+					$(this).siblings('.search-list').hide();
+					return;
+				}
+				$(this).siblings('.search-list').show();
+			});
+			$(document).click(function(){
+			    $(".search-list").hide();
+			});
+		})()
 	</script>
 </body>
 </html>
