@@ -19,3 +19,4 @@ function getRandom(len,type){
   }
   return str;
 }
+
