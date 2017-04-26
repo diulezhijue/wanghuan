@@ -19,4 +19,31 @@ function getRandom(len,type){
   }
   return str;
 }
-
+// 返回对象的数据类型
+function isClass(obj){
+  if(obj === null) return 'Null';
+  if(obj === undefined) return "Undefined";
+  return Object.prototype.toString.call(obj).slice(8,-1);
+}
+// 对象的深克隆
+function deepClone(obj){
+    var result,oClass=isClass(obj);
+        //确定result的类型
+    if(oClass==="Object"){
+        result={};
+    }else if(oClass==="Array"){
+        result=[];
+    }else{
+        return obj;
+    }
+    for(key in obj){
+        var copy=obj[key];
+        if(isClass(copy)=="Object"||"Array"){
+            result[key]=arguments.callee(copy);//递归调用
+            								   //arguments.callee代表当前调用函数
+        }else{
+            result[key]=obj[key];
+        }
+    }
+    return result;
+}
