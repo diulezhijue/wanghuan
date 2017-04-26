@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>测试题</title>
+  <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css">
+  <script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+
+  <style>
+    
+    form{
+      margin-top: 20px;
+      margin-bottom:15px;
+    }
+    .search{
+      height: 60px;
+      border: none;
+      background: #f9f9f9;
+      box-shadow:none;
+      font-size:18px;
+    }
+    .project{
+      background: #f9f9f9;
+      margin:0;
+      padding: 20px;
+      border-radius:5px;
+    }
+    .project span{
+      display:block;
+      line-height:1.7;
+     
+    }
+    .project .des-title{
+      font-size:16px;
+      color:#b9b9b9;
+    }
+    .project .des-data{
+      color:#504f4f;
+    }
+    .speed{
+      padding: 20px 0;
+      border-bottom: 1px solid #efeaea;
+    }
+    .speed .progress{
+      margin:0.5rem 0;
+      position: relative;
+    }
+    .speed .progress-bar{
+      border-radius:5px;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .speed .speed-title{
+      font-size:16px;
+      color:#b9b9b9;
+      float: left;
+    }
+    .speed .speed-data{
+      float: right;
+    }
+    .speed .speed-real{
+      width: 73%;
+    }
+    .speed .speed-plan{
+      width: 40%;
+    }
+    h3.title{
+      color: #b3afaf;
+      margin: 1em 0;
+    }
+    .real-color{
+      color:#42a3dd;
+    }
+    .plan-color{
+      color: #33475a;
+    }
+    .real-color-bg{
+      background: #42a3dd;
+    }
+    .plan-color-bg{
+      background: #33475a;
+    }
+    .isshow{
+      margin-top: 10px;
+      color: #939393;
+    }
+    .pro-list {
+      background: #fff;
+      padding: 1rem;
+      border: 2px solid #efefef;
+      border-radius: 0.7rem;
+      box-shadow: 1px 1px 11px #c5c4c4;
+    }
+    .pro-list h4{
+      color: #939393;
+    }
+    .pro-list h5{
+      margin-top: 3rem;
+    }
+    .pro-list .speed{
+      border: none;
+    }
+    .pro-list .progress {
+        height: 10px;
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+    <h2>热电厂二期项目</h2>
+    <input class="form-control search" placeholder="搜索过滤建筑物名称">
+    <div v-for="building in buildings">
+      <h3 class="title">单位建筑</h3>
+      <div class="project">
+        <h3 class="text-center">主厂房</h3>
+        <div class="row">
+          <div class="col-xs-3">
+            <span class="des-title">计划开始</span>
+            <span class="des-data">xxxxx</span>
+          </div>
+          <div class="col-xs-3">
+            <span class="des-title">计划完成</span>
+            <span class="des-data">xxxxx</span>
+          </div>
+          <div class="col-xs-3">
+            <span class="des-title">计划工期</span>
+            <span class="des-data">xxxxx</span>
+          </div>
+          <div class="col-xs-3">
+            <span class="des-title">已经施工</span>
+            <span class="des-data">xxxxx</span>
+          </div>
+        </div>
+        <div class="speed">
+          <div class="speed-real clearfix">
+            <span class="speed-title">实际进度</span>
+            <span class="speed-data real-color">73%</span>
+          </div>
+          <div class="progress">
+      	    <div class="progress-bar real-color-bg" role="progressbar" style="width: 73%;">
+      		    <span class="sr-only">40% 完成</span>
+      	    </div>
+            <div class="progress-bar plan-color-bg" role="progressbar" style="width: 40%;">
+              <span class="sr-only">40% 完成</span>
+            </div>
+          </div>
+          <div class="speed-plan clearfix">
+            <span class="speed-title">计划进度</span>
+            <span class="speed-data plan-color">40%</span>
+          </div> 
+        </div>
+        <p class="text-center isshow">显示分部工程进度
+            <span class="glyphicon glyphicon-chevron-down"></span>
+        </p>
+        <div class="pro-list">
+            <h4 class="text-center">分部工程</h4>
+            <div class="pro-item">
+              <h5 class="text-center">锅炉间 &nbsp;基础工程</h5>
+              <div class="row">
+                <div class="col-xs-3">
+                  <span class="des-title">计划开始</span>
+                  <span class="des-data">xxxxx</span>
+                </div>
+                <div class="col-xs-3">
+                  <span class="des-title">计划完成</span>
+                  <span class="des-data">xxxxx</span>
+                </div>
+                <div class="col-xs-3">
+                  <span class="des-title">计划工期</span>
+                  <span class="des-data">xxxxx</span>
+                </div>
+                <div class="col-xs-3">
+                  <span class="des-title">已经施工</span>
+                  <span class="des-data">xxxxx</span>
+                </div>
+              </div>
+              <div class="speed">
+                <div class="speed-real clearfix">
+                  <span class="speed-title">实际进度</span>
+                  <span class="speed-data real-color">73%</span>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar real-color-bg" role="progressbar" style="width: 73%;">
+                    <span class="sr-only">40% 完成</span>
+                  </div>
+                  <div class="progress-bar plan-color-bg" role="progressbar" style="width: 40%;">
+                    <span class="sr-only">40% 完成</span>
+                  </div>
+                </div>
+                <div class="speed-plan clearfix">
+                  <span class="speed-title">计划进度</span>
+                  <span class="speed-data plan-color">40%</span>
+                </div> 
+              </div>
+            </div>
+            <div class="pro-item">
+              <h5 class="text-center">锅炉间 &nbsp;基础工程</h5>
+              <div class="row">
+                <div class="col-xs-3">
+                  <span class="des-title">计划开始</span>
+                  <span class="des-data">xxxxx</span>
+                </div>
+                <div class="col-xs-3">
+                  <span class="des-title">计划完成</span>
+                  <span class="des-data">xxxxx</span>
+                </div>
+                <div class="col-xs-3">
+                  <span class="des-title">计划工期</span>
+                  <span class="des-data">xxxxx</span>
+                </div>
+                <div class="col-xs-3">
+                  <span class="des-title">已经施工</span>
+                  <span class="des-data">xxxxx</span>
+                </div>
+              </div>
+              <div class="speed">
+                <div class="speed-real clearfix">
+                  <span class="speed-title">实际进度</span>
+                  <span class="speed-data real-color">73%</span>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar real-color-bg" role="progressbar" style="width: 73%;">
+                    <span class="sr-only">40% 完成</span>
+                  </div>
+                  <div class="progress-bar plan-color-bg" role="progressbar" style="width: 40%;">
+                    <span class="sr-only">40% 完成</span>
+                  </div>
+                </div>
+                <div class="speed-plan clearfix">
+                  <span class="speed-title">计划进度</span>
+                  <span class="speed-data plan-color">40%</span>
+                </div> 
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+	</div>
+</form>
+    </div>
+    
+</body>
+</html>
