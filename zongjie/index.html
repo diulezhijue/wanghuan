@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p id="test" style="background: #ddd;"></p>
+	<script>
+		var str = '';
+		function test(obj,limit){
+			var arr = []
+			var el = document.getElementById('test');
+			for(var i =1;i<limit+1;i++){
+				var str = '';
+				for(var j in obj){
+					if (i % j == 0) {
+						str += '&nbsp;被'+j+'整除&nbsp;'
+					}
+				}	
+				if (str.length == 0) {
+					str = i;
+				}
+				el.innerHTML += str+'<br>';
+			}
+		}
+		var start = Date.now();
+		test({3:'c',5:'e'},100)
+		var end = Date.now();
+		console.log(end - start);
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div></div>
+	<script>
+		function add(a){
+			var count = a;
+			var sum = function(b){
+				count += b;
+				return sum;
+			}
+			sum.toString = function(){
+				return count;
+			}
+			return sum;
+		}
+		// var sum = add(9)(2)(3)
+		// console.log(sum);
+	</script>
+</body>
+</html>

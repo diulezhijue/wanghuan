@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<script>
+		function Foo() {  //定义了一个Foo函数
+		    getName = function () { console.log (1); }; //创建了Foo的静态属性getName 并存储一个匿名函数
+		    return this;
+		}
+		Foo.getName = function () { console.log (2);};
+		Foo.prototype.getName = function () { console.log (3);};
+		var getName = function () { console.log (4);}; // 函数表达式
+		function getName() { console.log (5);}		   // 函数声明
+
+		//请写出以下输出结果：
+		Foo.getName();  	//2  访问的是Foo函数的静态属性 getName  而Foo.getName 覆盖了Foo函数里的静态属性
+		getName();      	//4  函数表达式与函数声明都会提升到最顶部之行   所以上面的过程可等价于
+							//   var getName;
+							//   function getName(){console.log(5)}
+							//   getName = function(){console.log(4)}
+							//   显而易见  getName 最后被覆盖为4
+		Foo().getName();	//1	 先之行Foo()函数 返回值为this 这时候this指向的是window 
+							//       第一行 getName 赋值 但是此时没有var 声明getName 就要去外层找 (直到找到window没有的话就在window上赋值) 第15行 找到 这时候getName又被重写
+		getName();      	//1  上一步的时候getName已被覆盖  指向的还是window的getName
+		new Foo.getName();	//2  .的优先级要高于new  所以先执行 Foo.getName 输出getName
+		new Foo().getName();//3  实际上执行的是(new Foo()).getName() 
+							//   先执行 new Foo()  返回的是实例化对象 Foo{}
+							//   再找实例化对象的getName()方法 而getName方法只在Foo的原型上
+		new new Foo().getName();// 3 相当于new ((new Foo()).getName)()
+								//   先执行 new Foo() 返回实例化对象
+								//	 然后执行 (new Foo()).getName 得到原型对象上的getName方法 即输出3的方法
+								//   然后执行此方法 输出3
+	</script>
+</body>
+</html>

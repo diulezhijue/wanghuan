@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>todo</title>
+
+</head>
+<body>
+	<div id="app">
+		
+		<ul>
+			<todo-item v-for="item in newList" v-bind:todo="item"></todo-item>
+		</ul>
+		<input type="text" v-model="search"><br>
+		<input type="text" name="" v-model="inputName" placeholder="请输入名字">
+		<input type="text" name="" v-model="inputAge" placeholder="请输入年龄">
+		<button v-on:click="add">添加</button>
+	</div>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<script>
+		Vue.component('todo-item',{
+			props:['todo'],
+			template:"<li> {{todo.name }} &nbsp; {{todo.age}} </li>"
+		})
+		var vm = new Vue({
+			el:'#app',
+			data:{
+				inputName:'',
+				inputAge:'',
+				search:'',
+				list:[
+					{name:'hello',age:11},
+					{name:'world',age:12}
+				]
+			},
+			computed:{
+				newList:function(){
+					var newlist = [];
+					var list = this.list;
+					for(let i in list){
+						if (list[i].name.indexOf(this.search) != -1) {
+
+							newlist.push(list[i])
+						}
+					}
+					return newlist;
+				}
+			},
+			methods:{
+				add:function(){
+					this.list.push({
+						name:this.inputName,
+						age:this.inputAge
+					})
+				}
+			}
+
+		})
+	</script>
+</body>
+</html>
