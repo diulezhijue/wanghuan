@@ -4,7 +4,7 @@ var mimifyCss = require('gulp-minify-css');
 var imagemin = require('gulp-imagemin');
 var pngquant = require('imagemin-pngquant');
 var uglify = require("gulp-uglify");
-var jshint = require("gulp-jshint");
+// var jshint = require("gulp-jshint");
 var minhtml = require("gulp-htmlmin");
 
 gulp.task('css',function(){

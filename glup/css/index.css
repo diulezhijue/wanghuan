@@ -1,19 +1,36 @@
-section{
-	flex: 1;
-	display: flex;
-	flex-direction: column;
+
+.index-l{
+	width: 30%;	
+	height: 100%;
+	float: left;
+}
+.index-m{
+	width: 40%;
+	height: 100%;
+	float: left;
+}
+.index-r{
+	width: 30%;
+	height: 100%;
+	float: left;
+	padding-right: 30px;
 }
 .index-top{
-	flex: 150;
+	width: 100%;
+	height: 19.23%;
+	/* text-align: center; */
 }
 .index-middle{
-	flex: 500;
+	width: 100%;
+	height: 64.1%;
 }
 .index-bottom{
-	flex: 130;
+	width: 100%;
+	height: 16.67%;
 }
 .index-top .logo{
-	margin-top: 23px;
+	padding-top: 23px;
+	margin-left: 30px;
 }
 @media (min-height: 700px) {
 	.index-top .logo{
@@ -22,7 +39,8 @@ section{
 }
 
 .intro{
-    margin-top: 125px;
+    padding-top: 125px;
+    margin-left: 30px;
     position: relative;
     padding-left: 17px;
 }
@@ -36,13 +54,16 @@ section{
 	width: 8px;
 	height: 37px;
 	left: 0;
-	top: 0;
+	top: 125px;
 	border: 1px solid rgb(182,192,194);
 	background: #fff;
 }
 
 .r-search .search-box{
-	margin-top: -23px;
+	/* padding-top: 40px; */
+	display: inline-block;
+	position: relative;
+	/* transform: translateX(-50%); */
 }
 
 .slide{
@@ -54,7 +75,10 @@ section{
 	width: 300px;
 	height: 300px;
 	margin-left: 50%;
-	transform: translateX(-50%);
+	-webkit-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	-o-transform: translateX(-50%);
 	border-width: 2px;
 }
 .slide .in-circle{
@@ -92,5 +116,7 @@ section{
 	width: 1px;
 }
 .lesson-box{
-	padding: 0 40px;
+	/* padding: 0 40px; */
+	width: 100%;
+	/* height: 100%; */
 }

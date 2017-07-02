@@ -1,11 +1,15 @@
-.left{flex:220;}
-.middle{flex:700;}
-.right{flex:370;} 
-.left,.middle,.right{flex-direction:column;display:flex;}
-.col-top{flex:82;}
-.col-middle{flex:484; background: #000;overflow: hidden;}
-.col-bottom{flex:160;}
+.left{height: 100%;width: 17.05%;}
+.middle{width: 54.26%;height: 100%;}
+.right{width: 28.68%;height: 100%;} 
+.left,.middle,.right{float: left;}
+.col-top{height: 11.29%;}
+.col-middle{height: 66.67%;background: #000;overflow: hidden;}
+.col-bottom{height: 22.04%;}
 .right .col-bottom{flex: 644;}
+.right .col-middle{
+	background: none;
+	height: 80%;
+}
 
 
 .logo{
@@ -21,9 +25,9 @@
 }
 
 .left-middle{
-	padding: 20px 12px 20px 18px; 
+	/* padding: 20px 12px 20px 18px; */
 	background: rgba(0,0,0,.2);
-
+	/* background: red; */
 }
 .left-description{
 	width: 100%;
@@ -48,7 +52,7 @@
     width: 66px;
     height: 50px;
     float: left;
-    margin: 36px 53px 45px 62px;
+    margin: 53px 40px 45px 79px;
 }
 .home a {
     display: table;
@@ -79,17 +83,17 @@ h3.title {
     padding: 4px 9px;
     border-radius: 30px;
     position: relative;
-    top: 16px;
+    top: 25px;
 }
 h3.title:hover {
     border-width: 2px;
     font-weight: 600;
 }
 
-.m-nav{ 
-	display: flex;
-	align-items: center;
-	justify-content: center;
+.m-nav{
+	/* display: flex; */
+	/* align-items: center; */
+	text-align: center;
 	background: rgba(0,0,0,.3);
 }
 
@@ -234,4 +238,18 @@ h3.title:hover {
 }
 .load-img::-webkit-scrollbar{
     width: 0;
+}
+
+.shop-pro-img {
+    position: relative;
+}
+
+a.shop-link {
+    padding: 8px;
+    background: #7d7777;
+    color: #fff;
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    border-radius: 13px;
 }
