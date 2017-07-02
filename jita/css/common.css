@@ -202,9 +202,9 @@ embed{
 }
 
 .r-search{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    text-align: center;
+    padding-top: 40px;
+    /* justify-content: center; */
 }
 .r-search .search-box{
     margin: 0;
