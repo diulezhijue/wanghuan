@@ -37,13 +37,51 @@ function deepClone(obj){
         return obj;
     }
     for(key in obj){
-        var copy=obj[key];
-        if(isClass(copy)=="Object"||"Array"){
-            result[key]=arguments.callee(copy);//递归调用
+        if(isClass(obj[key])=="Object"||"Array"){
+            result[key]=arguments.callee(obj[key]);//递归调用
             								   //arguments.callee代表当前调用函数
         }else{
             result[key]=obj[key];
         }
     }
     return result;
+}
+// 判断一个字符串中出现次数最多的字符，统计这个次数
+function maxChar(str){
+	var json = {},max=0,maxChar='';
+	for(let i=0;i<str.length;i++){
+		var char = str.charAt(i);
+		if (!json[char]) {
+			json[char] = 1;
+		}else{
+			json[char]++;
+		}
+	}
+	for(let i in json){
+		if(json[i] > max){
+			max = json[i];
+			maxChar = i;
+		}
+	}
+	console.log(max,maxChar)
+}
+// 数组去重 依次判断是否存在于新数组中  不存在则放入新数组
+function removeDuplicatedItem(arr){
+  let newArr = []
+  for(let i =0;i<arr.length;i++){
+    if(newArr.indexOf(arr[i]) == -1){
+      newArr.push(arr[i])
+    }
+  }
+  return newArr;
+}
+// 数组去重  当元素第一次出现的位置返回的下标与当前索引相同时存入新数组，不同则为重复值
+function removeDuplicatedItem1(arr){
+  var newArr = [];
+  arr.forEach(function(e,idx,arr){
+    if(arr.indexOf(e) === idx){
+      newArr.push(e)
+    }
+  });
+  return newArr;
 }
