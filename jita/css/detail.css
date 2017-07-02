@@ -90,10 +90,10 @@ h3.title:hover {
     font-weight: 600;
 }
 
-.m-nav{ 
-	display: flex;
-	align-items: center;
-	justify-content: center;
+.m-nav{
+	/* display: flex; */
+	/* align-items: center; */
+	text-align: center;
 	background: rgba(0,0,0,.3);
 }
 
