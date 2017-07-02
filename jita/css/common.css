@@ -80,7 +80,6 @@ embed{
     height: 90px;
     position: relative;
     left: 50%;
-    transform: translateX(-50%);
     -webkit-transform: translateX(-50%);
     -moz-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
@@ -207,13 +206,14 @@ embed{
 
 .r-search{
     text-align: center;
-    padding-top: 40px;
+    padding-top: 30px;
     /* justify-content: center; */
 }
 .r-search .search-box{
     margin: 0;
     text-align: center;
     position: relative;
+    display: inline-block;
 }
 .r-search .search-box .search-ipt {
     outline: none;
